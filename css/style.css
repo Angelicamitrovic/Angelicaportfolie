@@ -1,0 +1,976 @@
+/* =====================================================
+   GOOGLE FONTS
+   ===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400&family=Inter:wght@400;500;900&display=swap");
+
+/* =====================================================
+   CUSTOM PROPERTIES
+   ===================================================== */
+
+:root {
+  /* COLORS */
+  --color-green: #8b8b63;
+  --color-cream: #e8e8d3;
+  --color-cream-dark: #dcdcc2;
+  --color-green-dark: #70705a;
+  --color-white: #ffffff;
+
+  /* FONTS */
+  --font-heading: "Fredoka", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* FONT WEIGHTS */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-black: 900;
+
+  /* LAYOUT */
+  --page-padding: clamp(24px, 5vw, 80px);
+  --section-padding: clamp(60px, 8vw, 120px);
+
+  /* MAX WIDTH */
+  --max-width: 1440px;
+
+  /* TRANSITIONS */
+  --transition: 250ms ease;
+}
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+
+  color: var(--color-green-dark);
+  background-color: var(--color-cream);
+
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+  min-height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 var(--page-padding);
+
+  background-color: var(--color-cream);
+
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: var(--weight-black);
+
+  color: var(--color-green-dark);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(16px, 2vw, 35px);
+
+  font-size: 0.7rem;
+  font-weight: var(--weight-medium);
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nav a {
+  transition: opacity var(--transition);
+}
+
+.nav a:hover {
+  opacity: 0.6;
+}
+
+.cv-button {
+  border: 1px solid var(--color-green-dark);
+
+  padding: 7px 12px;
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+  min-height: calc(100vh - 80px);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--page-padding);
+
+  background-color: var(--color-green);
+
+  /*
+       Når du har dit tekstur-billede, bruges dette:
+
+       background-image: url("../assets/images/hero-bg.webp");
+       background-size: cover;
+       background-position: center;
+    */
+
+  color: var(--color-cream);
+}
+
+.hero-name {
+  text-align: center;
+}
+
+.hero-name h1 {
+  margin-bottom: 8px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 6.25rem);
+  font-weight: var(--weight-regular);
+
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.hero-lastname {
+  margin: 0;
+
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  font-weight: var(--weight-medium);
+
+  letter-spacing: 0.08em;
+}
+
+.hero-role {
+  position: absolute;
+
+  left: 50%;
+  bottom: 35px;
+
+  transform: translateX(-50%);
+
+  margin: 0;
+
+  font-size: clamp(0.65rem, 1vw, 0.9rem);
+
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   ABOUT
+   ===================================================== */
+
+.about {
+  min-height: 700px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: clamp(40px, 7vw, 100px);
+
+  padding: var(--section-padding) var(--page-padding);
+
+  background-color: var(--color-cream);
+}
+
+.about-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-visual img {
+  width: min(100%, 500px);
+
+  object-fit: contain;
+}
+
+.about-content {
+  width: min(100%, 560px);
+}
+
+.about-content h2 {
+  margin-bottom: 28px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: var(--weight-regular);
+}
+
+.about-content p {
+  margin-bottom: 18px;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   PROJECT
+   ===================================================== */
+
+.project {
+  min-height: 700px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: var(--color-cream);
+}
+
+/* -------------------------
+   PROJECT TEXT
+   ------------------------- */
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+
+  padding: clamp(35px, 5vw, 70px) var(--page-padding);
+}
+
+.project-number {
+  display: block;
+
+  margin-bottom: clamp(70px, 10vw, 150px);
+
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
+.project-text {
+  width: min(100%, 520px);
+}
+
+.project-text h2 {
+  margin-bottom: 8px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: var(--weight-regular);
+
+  line-height: 1.15;
+}
+
+.project-year {
+  display: block;
+
+  margin-bottom: 30px;
+
+  font-size: 0.9rem;
+}
+
+.project-text p {
+  margin-bottom: 20px;
+
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.small-line {
+  width: 70px;
+  height: 1px;
+
+  margin-top: 25px;
+
+  background-color: var(--color-green-dark);
+}
+
+/* =====================================================
+   PROJECT VISUAL
+   ===================================================== */
+
+.project-visual {
+  position: relative;
+
+  min-width: 0;
+  min-height: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-green);
+
+  /*
+       Samme tekstur som i dit Figma-design:
+
+       background-image: url("../assets/images/hero-bg.webp");
+       background-size: cover;
+       background-position: center;
+    */
+}
+
+/* =====================================================
+   WEBSITE / LAPTOP MOCKUP
+   ===================================================== */
+
+.website-mockup {
+  position: relative;
+
+  display: block;
+
+  /*
+       Gør den lidt bredere end den grønne kolonne,
+       så computeren går ind over tekstområdet,
+       ligesom i dit Figma-design.
+    */
+
+  width: min(115%, 780px);
+
+  transform: translateX(-8%);
+}
+
+/*
+   Selve området hvor hjemmesiden vises.
+
+   Disse procentværdier skal sandsynligvis
+   finjusteres, når vi har din rigtige
+   laptop-frame.
+*/
+
+.website-screen {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 5%;
+  left: 10.5%;
+
+  width: 79%;
+  height: 79%;
+
+  overflow: hidden;
+
+  background-color: var(--color-white);
+}
+
+.website-preview {
+  width: 100%;
+  height: auto;
+
+  animation: website-scroll 14s ease-in-out infinite alternate;
+}
+
+/* AUTOMATISK WEBSITE SCROLL */
+
+@keyframes website-scroll {
+  0%,
+  10% {
+    transform: translateY(0);
+  }
+
+  90%,
+  100% {
+    transform: translateY(calc(-100% + 350px));
+  }
+}
+
+.laptop-frame {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  pointer-events: none;
+}
+
+/* Stop animation when hovering */
+
+.website-mockup:hover .website-preview {
+  animation-play-state: paused;
+}
+
+/* =====================================================
+   SOME SHOWCASE
+   ===================================================== */
+
+.showcase {
+  min-height: 650px;
+
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+
+  align-items: center;
+
+  gap: clamp(40px, 7vw, 100px);
+
+  padding: var(--section-padding) var(--page-padding);
+
+  background-color: var(--color-cream);
+}
+
+.showcase-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-images img {
+  width: min(100%, 750px);
+
+  object-fit: contain;
+}
+
+.showcase-content {
+  width: min(100%, 450px);
+}
+
+.showcase-content h3 {
+  margin-bottom: 30px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: var(--weight-regular);
+}
+
+.showcase-content p {
+  margin-bottom: 18px;
+
+  line-height: 1.6;
+}
+
+.showcase-content ul {
+  margin: 0;
+
+  padding-left: 20px;
+
+  line-height: 1.7;
+}
+
+/* =====================================================
+   VIDEO PRODUCTION
+   ===================================================== */
+
+.video-production {
+  min-height: 650px;
+
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+
+  align-items: center;
+
+  gap: clamp(40px, 6vw, 100px);
+
+  padding: var(--section-padding) var(--page-padding);
+
+  background-color: var(--color-cream);
+}
+
+.video-content {
+  width: min(100%, 500px);
+}
+
+.video-content h3 {
+  margin-bottom: 45px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: var(--weight-regular);
+}
+
+.video-content p {
+  margin-bottom: 18px;
+
+  line-height: 1.6;
+}
+
+.video-content ul {
+  margin: 0;
+
+  padding-left: 20px;
+
+  line-height: 1.7;
+}
+
+/* =====================================================
+   VIDEO LAPTOP
+   ===================================================== */
+
+.video-showcase {
+  text-align: center;
+}
+
+.video-laptop {
+  position: relative;
+
+  width: min(100%, 750px);
+
+  margin: 0 auto;
+}
+
+.laptop-video-screen {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 5%;
+  left: 10.5%;
+
+  width: 79%;
+  height: 79%;
+
+  overflow: hidden;
+
+  background: #000;
+}
+
+.laptop-video-screen video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.media-caption {
+  margin-top: 15px;
+
+  font-size: 0.75rem;
+}
+
+/* =====================================================
+   PROJECT 2 VIDEO GROUP
+   ===================================================== */
+
+.video-production-double {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+.video-media-group {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+
+  align-items: end;
+
+  gap: clamp(25px, 4vw, 60px);
+}
+
+/* =====================================================
+   PHONE VIDEO
+   ===================================================== */
+
+.video-phone {
+  position: relative;
+
+  width: min(100%, 240px);
+
+  margin: 0 auto;
+}
+
+.phone-video-screen {
+  position: absolute;
+
+  z-index: 1;
+
+  /*
+       Skal tilpasses din præcise telefonramme.
+    */
+
+  top: 2%;
+  left: 6%;
+
+  width: 88%;
+  height: 96%;
+
+  overflow: hidden;
+
+  border-radius: 12%;
+  background: #000;
+}
+
+.phone-video-screen video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.phone-frame {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   CONTACT
+   ===================================================== */
+
+.contact {
+  padding: 50px var(--page-padding) clamp(100px, 12vw, 170px);
+
+  background-color: var(--color-cream);
+}
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+}
+
+.contact-content {
+  width: min(100%, 900px);
+
+  margin: clamp(80px, 10vw, 140px) auto 0;
+
+  text-align: center;
+}
+
+.contact-content h2 {
+  margin-bottom: 20px;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: var(--weight-regular);
+}
+
+.contact-content > p {
+  width: min(100%, 650px);
+
+  margin: 0 auto;
+
+  line-height: 1.7;
+}
+
+.contact-links {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: clamp(40px, 8vw, 100px);
+
+  margin-top: 70px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 0.8rem;
+
+  transition: opacity var(--transition);
+}
+
+.contact-item:hover {
+  opacity: 0.6;
+}
+
+.contact-icon {
+  font-size: 1.6rem;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 30px var(--page-padding);
+
+  color: var(--color-cream);
+  background-color: var(--color-green);
+
+  /*
+       background-image: url("../assets/images/hero-bg.webp");
+       background-size: cover;
+       background-position: center;
+    */
+}
+
+.footer-logo {
+  font-size: 1.4rem;
+  font-weight: var(--weight-black);
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  font-size: 0.65rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 900px) {
+  :root {
+    --page-padding: 35px;
+  }
+
+  /* ABOUT */
+
+  .about {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .about-content {
+    margin: 0 auto;
+  }
+
+  /* PROJECT */
+
+  .project {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .project-number {
+    margin-bottom: 60px;
+  }
+
+  .project-content {
+    min-height: 600px;
+  }
+
+  .project-visual {
+    min-height: 550px;
+  }
+
+  .website-mockup {
+    width: min(90%, 700px);
+
+    transform: none;
+  }
+
+  /* SOME */
+
+  .showcase {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .showcase-content {
+    margin: 0 auto;
+  }
+
+  /* VIDEO */
+
+  .video-production,
+  .video-production-double {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .video-content {
+    margin: 0 auto;
+  }
+
+  .video-media-group {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 20px;
+    --section-padding: 70px;
+  }
+
+  /* HEADER */
+
+  .header {
+    min-height: 65px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .nav {
+    gap: 12px;
+
+    font-size: 0.55rem;
+  }
+
+  .cv-button {
+    padding: 5px 8px;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: calc(100svh - 65px);
+  }
+
+  .hero-name h1 {
+    font-size: clamp(3.3rem, 17vw, 5rem);
+  }
+
+  /* ABOUT */
+
+  .about {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* PROJECT */
+
+  .project-content {
+    min-height: auto;
+
+    padding-top: 45px;
+    padding-bottom: 80px;
+  }
+
+  .project-number {
+    margin-bottom: 70px;
+  }
+
+  .project-text h2 {
+    font-size: 2rem;
+  }
+
+  .project-visual {
+    min-height: 380px;
+  }
+
+  .website-mockup {
+    width: 95%;
+  }
+
+  /* SHOWCASE */
+
+  .showcase {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* VIDEO */
+
+  .video-production {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .video-media-group {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .video-phone {
+    width: 180px;
+  }
+
+  /* CONTACT */
+
+  .contact {
+    padding-bottom: 100px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    text-align: center;
+  }
+
+  .footer-nav {
+    gap: 18px;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .website-preview {
+    animation: none;
+  }
+}
