@@ -1,37 +1,26 @@
-/* =========================================================
-   FONTS
-========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&family=Inter:wght@400;500;600;700;900&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400&family=Inter:wght@400;500;600;700;900&display=swap");
-
-/* =========================================================
+/* ========================================
    VARIABLES
-========================================================= */
+======================================== */
 
 :root {
-  /* Den lyse beige fra Kort om mig / SoMe */
-  --light-bg: #e8e8d3;
-
-  /* Den lidt anderledes beige fra projekt/video */
-  --alt-bg: #dedec4;
-
-  /* Kontakt-sektion */
-  --contact-bg: #d9d9bd;
-
-  --text: #70705a;
   --green: #8b8b63;
-  --white: #f2f2dc;
+  --cream: #e8e8d3;
+  --cream-alt: #dcdcc2;
+  --text: #70705a;
+  --white: #ffffff;
 
   --heading: "Fredoka", sans-serif;
   --body: "Inter", sans-serif;
 
-  --page-padding: clamp(32px, 5.5vw, 90px);
-  --content-width: 1440px;
+  --page-padding: clamp(30px, 5vw, 85px);
+  --section-padding: clamp(80px, 8vw, 130px);
 }
 
-/* =========================================================
+/* ========================================
    RESET
-========================================================= */
+======================================== */
 
 *,
 *::before,
@@ -45,24 +34,16 @@ html {
 
 body {
   margin: 0;
-
-  overflow-x: hidden;
-
-  background: var(--light-bg);
-
+  background: var(--cream);
   color: var(--text);
-
   font-family: var(--body);
+  overflow-x: hidden;
 }
 
 img,
 video,
 iframe {
   display: block;
-}
-
-img,
-video {
   max-width: 100%;
 }
 
@@ -78,12 +59,12 @@ p {
   margin-top: 0;
 }
 
-/* =========================================================
+/* ========================================
    HEADER
-========================================================= */
+======================================== */
 
 .header {
-  height: 108px;
+  height: 110px;
 
   display: flex;
   align-items: center;
@@ -91,18 +72,15 @@ p {
 
   padding: 0 var(--page-padding);
 
-  background: var(--light-bg);
+  background: var(--cream);
 
   position: relative;
   z-index: 100;
 }
 
 .logo {
-  font-family: var(--body);
-
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(2rem, 3vw, 3.4rem);
   font-weight: 900;
-
   line-height: 1;
 }
 
@@ -110,263 +88,307 @@ p {
   display: flex;
   align-items: center;
 
-  gap: clamp(30px, 4vw, 65px);
+  gap: clamp(25px, 4vw, 70px);
 
-  font-size: clamp(12px, 1.25vw, 20px);
+  font-size: 1rem;
   font-weight: 700;
 
-  text-transform: uppercase;
   letter-spacing: 0.22em;
-}
-
-.cv-button {
-  padding: 15px 35px;
-
-  border-radius: 4px;
-
-  background: var(--text);
-  color: var(--light-bg);
-
-  font-size: 1.1em;
+  text-transform: uppercase;
 }
 
 .nav a {
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
+  transition: opacity 200ms ease;
 }
 
 .nav a:hover {
   opacity: 0.65;
 }
 
-/* =========================================================
+.cv-button {
+  padding: 20px 40px;
+
+  background: var(--text);
+  color: var(--cream);
+
+  border-radius: 5px;
+}
+
+/* ========================================
    HERO
-========================================================= */
+======================================== */
 
 .hero {
-  height: calc(100svh - 108px);
-  min-height: 600px;
+  min-height: calc(100vh - 110px);
 
   position: relative;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  padding: 40px var(--page-padding);
+  padding: var(--page-padding);
 
-  color: var(--light-bg);
+  color: var(--cream);
 
-  background-color: var(--green);
-  background-image: url("../assets/images/green-background.webp");
+  background-image: linear-gradient(rgba(65, 65, 42, 0.2), rgba(65, 65, 42, 0.2)), url("../assets/images/green-background.webp");
+
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 .hero-name {
   text-align: center;
-
-  transform: translateY(-3vh);
 }
 
-.hero-name h1 {
+.hero h1 {
   margin: 0;
 
   font-family: var(--heading);
-  font-size: clamp(70px, 9vw, 135px);
+
+  font-size: clamp(5rem, 10vw, 9rem);
   font-weight: 400;
 
   line-height: 0.9;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.02em;
 }
 
-.hero-name p {
-  margin: 20px 0 0;
+.hero-lastname {
+  margin-top: 20px;
 
-  font-size: clamp(17px, 2vw, 32px);
-  font-weight: 600;
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-weight: 500;
 
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+
+  /* Flytter efternavnet mod højre som i Figma */
+  transform: translateX(22%);
 }
 
 .hero-role {
   position: absolute;
 
   left: 50%;
-  bottom: 30px;
+  bottom: 35px;
 
   transform: translateX(-50%);
 
   margin: 0;
 
-  font-size: clamp(13px, 1.6vw, 23px);
   font-weight: 600;
+  font-size: clamp(0.75rem, 1vw, 1rem);
 
-  letter-spacing: 0.08em;
-
-  white-space: nowrap;
+  letter-spacing: 0.18em;
 }
 
-/* =========================================================
+/* ========================================
    ABOUT
-========================================================= */
+======================================== */
 
 .about {
-  min-height: 760px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 90px var(--page-padding);
-
-  background: var(--light-bg);
+  padding: var(--section-padding) var(--page-padding);
+  background: var(--cream);
 }
 
 .about-inner {
   width: min(100%, 1050px);
-
   margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .about-image {
-  width: min(100%, 600px);
-
-  margin-bottom: 55px;
-
-  object-fit: contain;
+  width: min(100%, 620px);
+  margin: 0 auto 55px;
 }
 
-.about-copy {
-  width: min(100%, 920px);
+.about-content {
+  width: min(100%, 850px);
+  margin: 0 auto;
 }
 
-.about-copy h2 {
-  margin-bottom: 24px;
+.about-content h2 {
+  margin-bottom: 25px;
 
   font-family: var(--heading);
 
-  font-size: clamp(30px, 3vw, 42px);
-  font-weight: 400;
+  font-size: clamp(2.1rem, 3vw, 3rem);
+  font-weight: 500;
 }
 
-.about-copy p {
-  margin: 0;
-
-  font-size: clamp(16px, 1.55vw, 23px);
-
-  line-height: 1.55;
+.about-content p {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
 }
 
-/* =========================================================
-   GENERELLE PROJEKTSEKTIONER
-========================================================= */
+/* ========================================
+   PROJECT
+======================================== */
 
-.project-section {
-  min-height: 760px;
+.project {
+  min-height: 780px;
 
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 1fr 1fr;
 
-  background: var(--alt-bg);
+  background: var(--cream-alt);
 }
 
-/* =========================================================
-   PROJEKT TEKST
-========================================================= */
+/* Projekt 2 skal være lys beige */
 
-.project-copy {
-  padding: 60px var(--page-padding) 75px;
+.project-young {
+  background: var(--cream);
+}
+
+.project-content {
+  padding: 65px var(--page-padding);
 
   display: flex;
   flex-direction: column;
 }
 
-.project-label {
-  display: block;
-
-  margin-bottom: clamp(70px, 8vw, 125px);
+.project-number {
+  margin-bottom: clamp(80px, 10vw, 150px);
 
   font-family: var(--heading);
-  font-size: clamp(22px, 2.5vw, 36px);
+  font-size: 1.2rem;
 }
 
-.project-copy-inner {
-  width: min(100%, 580px);
+.project-text {
+  width: min(100%, 600px);
 }
 
-.project-copy h2 {
-  margin: 0 0 20px;
+.project-text h2 {
+  margin-bottom: 15px;
 
   font-family: var(--heading);
 
-  font-size: clamp(40px, 4vw, 62px);
+  font-size: clamp(2.7rem, 4vw, 4.2rem);
   font-weight: 400;
 
-  line-height: 1.15;
+  line-height: 1.08;
 }
 
 .project-year {
+  display: block;
+
   margin-bottom: 50px;
 
-  font-size: clamp(18px, 1.8vw, 28px);
+  font-size: 1.3rem;
 }
 
-.project-copy-inner > p:not(.project-year) {
-  margin-bottom: 32px;
+.project-text p {
+  margin-bottom: 30px;
 
-  font-size: clamp(15px, 1.45vw, 22px);
-
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
 }
 
-/* =========================================================
-   STREG
-========================================================= */
+.small-line {
+  width: 110px;
+  height: 3px;
 
-.line {
-  width: 135px;
-  height: 4px;
-
-  margin-top: 30px;
-
-  border-radius: 100px;
+  margin-top: 25px;
 
   background: var(--text);
+
+  border-radius: 10px;
 }
 
-/* =========================================================
-   GRØN PROJEKTBAGGRUND
-========================================================= */
+/* ========================================
+   PROJECT GREEN SIDE
+======================================== */
 
-.project-website-area {
-  min-width: 0;
+.project-visual {
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  position: relative;
+  min-width: 0;
 
-  background-color: var(--green);
-  background-image: url("../assets/images/green-background.webp");
+  padding: 60px 20px;
+
+  background-image: linear-gradient(rgba(65, 65, 42, 0.12), rgba(65, 65, 42, 0.12)), url("../assets/images/green-background.webp");
+
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* =========================================================
-   LAPTOP
-========================================================= */
+.website-showcase {
+  width: 115%;
+  max-width: 920px;
 
-.laptop {
+  transform: translateX(-9%);
+
+  text-align: center;
+}
+
+/* ========================================
+   MACBOOK
+   KORRIGERET TIL laptop-frame.png
+======================================== */
+
+.website-mockup,
+.video-laptop {
   position: relative;
+
+  width: 100%;
+  margin: 0 auto;
 }
+
+/*
+   laptop-frame.png = 668 x 441 px
+
+   Skærmområde:
+   venstre ≈ 89 px
+   top ≈ 38 px
+   højre ≈ 604 px
+   bund ≈ 383 px
+
+   Derfor bruger ALLE MacBooks det samme
+   præcise skærmområde.
+*/
+
+.macbook-screen {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 13.32%;
+  top: 8.62%;
+
+  width: 77.1%;
+  height: 78.23%;
+
+  overflow: hidden;
+
+  background: #000;
+}
+
+/*
+   Videoen fylder ALTID hele skærmområdet.
+
+   object-fit: cover betyder:
+   ingen beige/grønne huller.
+*/
+
+.macbook-screen video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 0;
+}
+
+/*
+   Selve MacBook-framen ligger ovenpå videoen.
+*/
 
 .laptop-frame {
   position: relative;
@@ -376,359 +398,278 @@ p {
   display: block;
 
   width: 100%;
+  height: auto;
 
   pointer-events: none;
 }
 
-.laptop-screen {
-  position: absolute;
-
-  z-index: 1;
-
-  top: 5%;
-  left: 10.5%;
-
-  width: 79%;
-  height: 79%;
-
-  overflow: hidden;
-
-  background: #fff;
-}
-
-.laptop-screen iframe,
-.laptop-screen video {
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-
-  object-fit: cover;
-}
-
-/* =========================================================
-   LIVE HJEMMESIDE
-========================================================= */
-
-.website-showcase {
-  width: min(145%, 900px);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 18px;
-
-  /*
-       Flytter computeren ind over den beige side,
-       som på dine screenshots.
-    */
-  transform: translateX(-22%);
-}
+/* ========================================
+   WEBSITE LINK
+======================================== */
 
 .website-link {
   display: inline-flex;
   align-items: center;
 
-  gap: 10px;
+  gap: 15px;
 
-  padding-bottom: 4px;
-
-  color: var(--light-bg);
+  margin-top: 25px;
+  padding-bottom: 7px;
 
   border-bottom: 2px solid currentColor;
 
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--cream);
 
-  transition:
-    gap 180ms ease,
-    opacity 180ms ease;
+  font-weight: 600;
 }
 
 .website-link:hover {
-  gap: 16px;
   opacity: 0.7;
 }
 
-/* =========================================================
-   FÆLLES CONTENT
-========================================================= */
+/* ========================================
+   SOME
+======================================== */
 
-.section-light {
-  background: var(--light-bg);
+.some-section {
+  position: relative;
+
+  padding: var(--section-padding) var(--page-padding);
+
+  background: var(--cream);
 }
-
-.section-alt {
-  background: var(--alt-bg);
-}
-
-.content-copy h2 {
-  margin-bottom: clamp(55px, 7vw, 100px);
-
-  font-family: var(--heading);
-
-  font-size: clamp(34px, 3.4vw, 52px);
-  font-weight: 400;
-}
-
-.content-copy p {
-  margin-bottom: 32px;
-
-  font-size: clamp(16px, 1.55vw, 23px);
-  font-weight: 500;
-}
-
-.content-copy ul {
-  margin: 0;
-
-  padding-left: 26px;
-
-  font-size: clamp(15px, 1.5vw, 22px);
-
-  line-height: 1.55;
-}
-
-/* =========================================================
-   BRØNDEN SOME
-========================================================= */
 
 .bronden-some {
-  min-height: 760px;
+  min-height: 700px;
 
   display: grid;
-  grid-template-columns: 67% 33%;
+  grid-template-columns: 1.3fr 0.7fr;
 
   align-items: center;
 
-  position: relative;
-
-  padding: 70px var(--page-padding);
-
-  overflow: hidden;
+  gap: clamp(50px, 7vw, 110px);
 }
 
-.bronden-some-visual {
+.some-visual {
   position: relative;
-
-  min-height: 600px;
-
-  display: flex;
-  align-items: center;
 }
 
 .green-decoration {
   position: absolute;
 
-  z-index: 0;
+  left: calc(-1 * var(--page-padding));
 
-  left: calc(var(--page-padding) * -1);
-  bottom: -70px;
+  /* Går helt ned til bunden af Brønden SoMe-sektionen */
+  bottom: calc(-1 * var(--section-padding));
 
-  width: 58%;
-  height: 220px;
+  width: 60%;
+  height: 180px;
 
-  background-color: var(--green);
-  background-image: url("../assets/images/green-background.webp");
+  background-image: linear-gradient(rgba(65, 65, 42, 0.08), rgba(65, 65, 42, 0.08)), url("../assets/images/green-background.webp");
+
   background-size: cover;
   background-position: center;
 }
 
-.bronden-phone-grid {
+.phone-gallery {
   position: relative;
-
-  z-index: 1;
-
-  width: min(100%, 850px);
+  z-index: 2;
 
   display: grid;
+}
+
+.bronden-phone-gallery {
   grid-template-columns: repeat(3, 1fr);
 
-  align-items: end;
-
-  gap: clamp(18px, 2.2vw, 35px);
+  gap: clamp(15px, 2vw, 30px);
 }
 
-.bronden-phone-grid img {
+.phone-gallery img {
   width: 100%;
   height: auto;
-
-  object-fit: contain;
 }
 
-/* =========================================================
-   BRØNDEN VIDEO
-========================================================= */
+.some-content {
+  width: min(100%, 480px);
+}
 
-.bronden-video {
-  min-height: 680px;
+.some-content h2 {
+  margin-bottom: 70px;
+
+  font-family: var(--heading);
+
+  font-size: clamp(2.5rem, 3.5vw, 3.6rem);
+  font-weight: 400;
+}
+
+.some-content p,
+.video-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.some-content ul,
+.video-content ul {
+  padding-left: 25px;
+
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+/* ========================================
+   VIDEO PRODUCTION
+======================================== */
+
+.video-production {
+  min-height: 720px;
 
   display: grid;
-  grid-template-columns: 42% 58%;
+  grid-template-columns: 0.75fr 1.25fr;
 
   align-items: center;
 
-  gap: 50px;
+  gap: clamp(40px, 6vw, 100px);
 
-  padding: 80px var(--page-padding);
+  padding: var(--section-padding) var(--page-padding);
+
+  background: var(--cream-alt);
 }
 
-.bronden-video .content-copy {
-  max-width: 560px;
+.video-content {
+  width: min(100%, 550px);
 }
 
-.media-showcase {
+.video-content h2 {
+  margin-bottom: 90px;
+
+  font-family: var(--heading);
+
+  font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+  font-weight: 400;
+}
+
+.video-showcase {
   text-align: center;
 }
 
 .video-laptop {
-  width: min(100%, 800px);
-
-  margin: 0 auto;
+  width: min(100%, 900px);
 }
 
 .media-caption {
-  margin: 25px 0 0;
-
-  font-size: clamp(12px, 1.25vw, 19px);
-
-  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
 }
 
-/* =========================================================
+/* ========================================
    YOUNG CREATIVES SOME
-========================================================= */
+======================================== */
 
 .young-some {
-  padding: 70px var(--page-padding) 100px;
+  padding-top: 100px;
+  padding-bottom: 120px;
+
+  /* Projekt 2 content = mørk beige */
+  background: var(--cream-alt);
 }
 
 .young-some-top {
-  width: 100%;
-
   display: grid;
-  grid-template-columns: 58% 42%;
+
+  grid-template-columns: 1.15fr 0.85fr;
 
   align-items: center;
 
-  gap: clamp(50px, 6vw, 100px);
+  gap: clamp(50px, 8vw, 120px);
 }
 
 .young-top-phones {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  gap: 30px;
-
-  width: min(100%, 720px);
+  gap: 20px;
+  justify-content: start;
 }
 
-.young-top-phones img {
+/* .young-top-phones img {
   width: 100%;
-}
-
-.young-some-copy {
-  max-width: 560px;
-}
+  max-width: 240px;
+} */
 
 .young-bottom-phones {
-  width: min(100%, 1350px);
-
-  margin: 70px auto 0;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
-  gap: clamp(25px, 4vw, 70px);
-
-  align-items: end;
+  gap: 20px;
+  margin-top: 70px;
 }
-
+.young-top-phones img,
 .young-bottom-phones img {
-  width: 100%;
+  width: 320px;
+  height: 430px;
+  object-fit: contain;
 }
 
-/* =========================================================
-   YOUNG CREATIVES VIDEO
-========================================================= */
+/* .young-bottom-phones img {
+  width: 100%;
+  max-width: 240px;
+} */
 
-.young-video {
+/* ========================================
+   YOUNG CREATIVES VIDEO
+======================================== */
+
+.young-video-section {
   position: relative;
 
-  min-height: 820px;
+  min-height: 780px;
 
-  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
 
-  grid-template-columns:
-    minmax(300px, 0.8fr)
-    minmax(0, 1.6fr);
-
-  align-items: center;
-
-  gap: 50px;
-
-  padding: 80px var(--page-padding);
-
-  overflow: hidden;
+  background: var(--cream);
 }
 
-.young-video-decoration {
+.young-video-section::before {
+  content: "";
+
   position: absolute;
 
   top: 0;
   right: 0;
 
-  width: 52%;
-  height: 170px;
+  width: 40%;
+  height: 160px;
 
-  background-color: var(--green);
-  background-image: url("../assets/images/green-background.webp");
+  background-image: linear-gradient(rgba(65, 65, 42, 0.1), rgba(65, 65, 42, 0.1)), url("../assets/images/green-background.webp");
+
   background-size: cover;
   background-position: center;
-}
-
-.young-video-copy {
-  position: relative;
-
-  z-index: 1;
-
-  align-self: start;
-
-  margin-top: 30px;
 }
 
 .young-video-media {
   position: relative;
 
-  z-index: 1;
+  z-index: 2;
 
   display: grid;
 
-  grid-template-columns:
-    minmax(0, 1.45fr)
-    minmax(170px, 0.65fr);
+  grid-template-columns: 1.4fr 0.6fr;
 
   align-items: end;
 
-  gap: clamp(30px, 4vw, 65px);
-
-  padding-top: 100px;
+  gap: clamp(30px, 4vw, 60px);
 }
 
-.young-video-laptop {
-  width: min(100%, 700px);
-
-  margin: 0 auto;
-}
-
-/* =========================================================
+/* ========================================
    PHONE VIDEO
-========================================================= */
+======================================== */
+
+.phone-showcase {
+  width: 100%;
+}
 
 .video-phone {
   position: relative;
 
-  width: min(100%, 330px);
+  width: min(100%, 300px);
 
   margin: 0 auto;
 }
@@ -738,234 +679,297 @@ p {
 
   z-index: 2;
 
+  display: block;
+
   width: 100%;
+  height: auto;
 
   pointer-events: none;
 }
 
-.phone-screen {
+.phone-video-screen {
   position: absolute;
 
   z-index: 1;
 
-  top: 2%;
-  left: 6%;
+  top: 2.2%;
+  left: 5.8%;
 
-  width: 88%;
-  height: 96%;
+  width: 88.4%;
+  height: 95.5%;
 
   overflow: hidden;
 
-  border-radius: 12%;
+  border-radius: 11%;
 
   background: #000;
 }
 
-.phone-screen video {
+.phone-video-screen video {
+  display: block;
+
   width: 100%;
   height: 100%;
+
+  max-width: none;
 
   object-fit: cover;
 }
 
-/* =========================================================
+/* ========================================
    CONTACT
-========================================================= */
+======================================== */
 
 .contact {
-  --contact-bg: #d9d9bd;
-
   min-height: 700px;
 
   padding: 55px var(--page-padding) 100px;
 
-  background: var(--contact-bg);
+  background: var(--cream-alt);
 }
 
 .contact-label {
   margin: 0;
 
   font-family: var(--heading);
-
-  font-size: clamp(27px, 2.8vw, 43px);
+  font-size: 1.6rem;
 }
 
-.contact-inner {
-  width: min(100%, 1050px);
+.contact-content {
+  width: min(100%, 1100px);
 
-  margin: 100px auto 0;
+  margin: 110px auto 0;
 
   text-align: center;
 }
 
-.contact-inner h2 {
-  margin-bottom: 35px;
+.contact-content h2 {
+  margin-bottom: 30px;
 
   font-family: var(--heading);
 
-  font-size: clamp(48px, 5.5vw, 78px);
-  font-weight: 400;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 500;
 }
 
 .contact-intro {
-  width: min(100%, 800px);
+  width: min(100%, 750px);
 
   margin: 0 auto;
 
-  font-size: clamp(17px, 1.65vw, 25px);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   font-weight: 600;
 
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-.contact-methods {
-  margin-top: 90px;
-
+.contact-links {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 60px;
+
+  margin-top: 100px;
 }
 
-.contact-method {
+.contact-item {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+  justify-content: flex-start;
 
   gap: 25px;
 
-  font-size: clamp(15px, 1.45vw, 22px);
+  font-size: 1rem;
   font-weight: 600;
-
-  transition: opacity 180ms ease;
 }
 
-.contact-method:hover {
-  opacity: 0.65;
+.contact-item:hover {
+  opacity: 0.7;
 }
 
-.contact-icon {
+.contact-svg {
   width: 72px;
   height: 72px;
+
+  fill: none;
+
+  stroke: var(--text);
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.linkedin-svg {
-  width: 75px;
-  height: 75px;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-  min-height: 230px;
+.linkedin-icon {
+  width: 72px;
+  height: 72px;
 
   display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 5px;
+  padding-right: 4px;
+
+  border-radius: 9px;
+
+  background: var(--text);
+  color: var(--cream);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 52px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -4px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+  min-height: 180px;
+
+  display: flex;
+
   align-items: center;
   justify-content: space-between;
 
-  padding: 40px var(--page-padding);
+  padding: 35px var(--page-padding);
 
-  color: var(--light-bg);
+  color: var(--cream);
 
-  background-color: var(--green);
-  background-image: url("../assets/images/green-background.webp");
+  background-image: linear-gradient(rgba(60, 60, 38, 0.24), rgba(60, 60, 38, 0.24)), url("../assets/images/green-background.webp");
+
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 .footer-logo {
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(2.7rem, 5vw, 5rem);
   font-weight: 900;
 }
 
 .footer-nav {
   display: flex;
+
   align-items: center;
 
-  gap: clamp(30px, 4vw, 65px);
+  gap: clamp(30px, 5vw, 80px);
 
-  font-size: clamp(13px, 1.35vw, 21px);
+  font-size: 0.9rem;
   font-weight: 700;
 
+  letter-spacing: 0.2em;
+
   text-transform: uppercase;
-  letter-spacing: 0.22em;
 }
 
 .footer-cv {
-  padding: 17px 42px;
+  padding: 18px 30px;
 
-  border-radius: 5px;
-
-  background: var(--light-bg);
-
+  background: var(--cream);
   color: var(--text);
 
-  font-size: 1.15em;
+  border-radius: 5px;
 }
 
-/* =========================================================
+/* ========================================
    TABLET
-========================================================= */
+======================================== */
 
 @media (max-width: 1000px) {
+  :root {
+    --page-padding: 35px;
+  }
+
   .header {
     height: 90px;
   }
 
   .hero {
-    height: calc(100svh - 90px);
+    min-height: calc(100svh - 90px);
   }
 
-  .project-section {
-    grid-template-columns: 55% 45%;
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  .project-content {
+    min-height: 650px;
+  }
+
+  .project-visual {
+    min-height: 600px;
   }
 
   .website-showcase {
-    width: 150%;
-
-    transform: translateX(-25%);
+    width: min(100%, 850px);
+    transform: none;
   }
 
   .bronden-some {
-    grid-template-columns: 62% 38%;
+    grid-template-columns: 1fr;
   }
 
-  .young-video {
-    grid-template-columns: 0.8fr 1.4fr;
+  .some-content {
+    margin: 0 auto;
+  }
+
+  .video-production,
+  .young-video-section {
+    grid-template-columns: 1fr;
+  }
+
+  .video-content {
+    margin: 0 auto;
+  }
+
+  .young-some-top {
+    grid-template-columns: 1fr;
+  }
+
+  .young-video-media {
+    width: 100%;
+    grid-template-columns: 1.4fr 0.6fr;
   }
 }
 
-/* =========================================================
-   MOBIL
-   Alt bliver én kolonne.
-========================================================= */
+/* ========================================
+   MOBILE
+======================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
   :root {
-    --page-padding: 22px;
+    --page-padding: 20px;
+    --section-padding: 70px;
   }
 
-  /* =====================================================
-       HEADER
-    ===================================================== */
-
   .header {
-    height: 70px;
+    height: auto;
 
-    padding: 0 18px;
+    min-height: 72px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .logo {
-    font-size: 23px;
+    font-size: 1.25rem;
   }
 
   .nav {
     gap: 12px;
 
-    font-size: 8px;
+    font-size: 0.55rem;
 
     letter-spacing: 0.1em;
   }
@@ -974,416 +978,186 @@ p {
     padding: 8px 10px;
   }
 
-  /* =====================================================
-       HERO
-    ===================================================== */
-
   .hero {
-    height: calc(100svh - 70px);
-    min-height: 520px;
-
-    background-position: center;
+    min-height: calc(100svh - 72px);
   }
 
-  .hero-name {
-    transform: translateY(-20px);
+  .hero h1 {
+    font-size: clamp(4rem, 20vw, 6rem);
   }
 
-  .hero-name h1 {
-    font-size: clamp(58px, 18vw, 90px);
-  }
-
-  .hero-name p {
-    margin-top: 12px;
-
-    font-size: 14px;
+  .hero-lastname {
+    font-size: 0.8rem;
   }
 
   .hero-role {
-    bottom: 28px;
+    bottom: 25px;
 
-    font-size: 10px;
-  }
-
-  /* =====================================================
-       ABOUT
-    ===================================================== */
-
-  .about {
-    min-height: auto;
-
-    padding: 70px 28px;
+    font-size: 0.65rem;
   }
 
   .about-image {
-    width: min(100%, 390px);
-
-    margin-bottom: 45px;
+    margin-bottom: 40px;
   }
 
-  .about-copy {
-    width: 100%;
+  .about-content h2 {
+    font-size: 2rem;
   }
 
-  .about-copy h2 {
-    font-size: 30px;
-  }
-
-  .about-copy p {
-    font-size: 15px;
-
-    line-height: 1.6;
-  }
-
-  /* =====================================================
-       PROJECT
-    ===================================================== */
-
-  .project-section {
-    display: flex;
-    flex-direction: column;
-
+  .project-content {
     min-height: auto;
+
+    padding-top: 45px;
+    padding-bottom: 80px;
   }
 
-  .project-copy {
-    padding: 50px var(--page-padding) 65px;
-  }
-
-  .project-label {
+  .project-number {
     margin-bottom: 70px;
-
-    font-size: 23px;
   }
 
-  .project-copy h2 {
-    font-size: 39px;
+  .project-text h2 {
+    font-size: 2.5rem;
   }
 
   .project-year {
     margin-bottom: 35px;
-
-    font-size: 18px;
   }
 
-  .project-copy-inner > p:not(.project-year) {
-    font-size: 15px;
+  .project-visual {
+    min-height: 430px;
 
-    line-height: 1.6;
-  }
-
-  .line {
-    width: 90px;
-    height: 3px;
-  }
-
-  /* =====================================================
-       PROJECT WEBSITE
-    ===================================================== */
-
-  .project-website-area {
-    min-height: 420px;
-
-    padding: 60px 0;
+    padding: 60px 15px;
   }
 
   .website-showcase {
-    width: 115%;
-
-    transform: translateX(-7%);
-  }
-
-  .website-link {
-    font-size: 12px;
-  }
-
-  /* =====================================================
-       GENEREL CONTENT
-    ===================================================== */
-
-  .content-copy h2 {
-    margin-bottom: 45px;
-
-    font-size: 34px;
-  }
-
-  .content-copy p {
-    font-size: 15px;
-  }
-
-  .content-copy ul {
-    font-size: 14px;
-
-    line-height: 1.65;
-  }
-
-  /* =====================================================
-       BRØNDEN SOME
-    ===================================================== */
-
-  .bronden-some {
-    display: flex;
-    flex-direction: column;
-
-    min-height: auto;
-
-    padding: 70px var(--page-padding);
-  }
-
-  .bronden-some-visual {
     width: 100%;
-
-    min-height: auto;
-
-    margin-bottom: 70px;
-
-    padding-bottom: 80px;
   }
 
-  .bronden-phone-grid {
-    width: 100%;
+  .bronden-phone-gallery {
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 12px;
+    gap: 8px;
   }
 
   .green-decoration {
-    left: calc(var(--page-padding) * -1);
-    bottom: 0;
+    height: 110px;
 
-    width: 65%;
-    height: 130px;
+    bottom: -25px;
   }
 
-  .bronden-some .content-copy {
-    width: 100%;
+  .some-content {
+    margin-top: 40px;
   }
 
-  /* =====================================================
-       BRØNDEN VIDEO
-    ===================================================== */
+  .some-content h2 {
+    margin-bottom: 35px;
 
-  .bronden-video {
-    display: flex;
-    flex-direction: column;
+    font-size: 2.3rem;
+  }
 
+  .video-production {
     min-height: auto;
 
-    align-items: stretch;
-
-    gap: 65px;
-
-    padding: 70px var(--page-padding);
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
-  .video-laptop {
-    width: 100%;
+  .video-content h2 {
+    margin-bottom: 45px;
+
+    font-size: 2.3rem;
   }
 
-  .media-caption {
-    font-size: 12px;
-  }
-
-  /* =====================================================
-       YOUNG SOME
-    ===================================================== */
-
-  .young-some {
-    padding: 70px var(--page-padding);
-  }
-
-  .young-some-top {
-    display: flex;
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 70px;
+  .video-showcase {
+    margin-top: 25px;
   }
 
   .young-top-phones {
-    width: 100%;
-
-    gap: 18px;
-  }
-
-  .young-some-copy {
-    max-width: none;
+    gap: 15px;
   }
 
   .young-bottom-phones {
-    margin-top: 70px;
-
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 30px 18px;
-  }
+    gap: 15px;
 
-  /* =====================================================
-       YOUNG VIDEO
-    ===================================================== */
-
-  .young-video {
-    display: flex;
-    flex-direction: column;
-
-    min-height: auto;
-
-    align-items: stretch;
-
-    gap: 60px;
-
-    padding: 70px var(--page-padding);
-  }
-
-  .young-video-decoration {
-    width: 55%;
-    height: 120px;
-  }
-
-  .young-video-copy {
-    margin-top: 0;
-
-    padding-top: 80px;
+    margin-top: 40px;
   }
 
   .young-video-media {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
 
-    align-items: center;
-
-    gap: 70px;
-
-    padding-top: 0;
-  }
-
-  .young-video-laptop {
-    width: 100%;
+    gap: 60px;
   }
 
   .video-phone {
-    width: min(70%, 280px);
+    width: min(65%, 260px);
   }
 
-  /* =====================================================
-       CONTACT
-    ===================================================== */
+  .young-video-section::before {
+    width: 55%;
+
+    height: 100px;
+  }
 
   .contact {
     min-height: auto;
 
-    padding: 45px var(--page-padding) 80px;
+    padding-bottom: 90px;
   }
 
-  .contact-label {
-    font-size: 27px;
-  }
-
-  .contact-inner {
+  .contact-content {
     margin-top: 80px;
   }
 
-  .contact-inner h2 {
-    font-size: 43px;
-
-    line-height: 1.1;
+  .contact-content h2 {
+    font-size: 2.7rem;
   }
 
-  .contact-intro {
-    font-size: 15px;
-  }
-
-  .contact-methods {
-    margin-top: 65px;
-
+  .contact-links {
     grid-template-columns: 1fr;
 
-    gap: 50px;
+    gap: 55px;
+
+    margin-top: 70px;
   }
 
-  .contact-method {
-    gap: 15px;
-
-    font-size: 14px;
+  .contact-svg,
+  .linkedin-icon {
+    width: 58px;
+    height: 58px;
   }
 
-  .contact-icon {
-    width: 55px;
-    height: 55px;
+  .linkedin-icon {
+    font-size: 42px;
   }
-
-  /* =====================================================
-       FOOTER
-    ===================================================== */
 
   .footer {
-    min-height: 170px;
+    min-height: 220px;
 
     flex-direction: column;
 
     justify-content: center;
 
-    gap: 35px;
+    gap: 40px;
 
-    padding: 35px 20px;
-  }
-
-  .footer-logo {
-    font-size: 38px;
+    text-align: center;
   }
 
   .footer-nav {
     gap: 18px;
 
-    font-size: 9px;
-
-    letter-spacing: 0.1em;
+    font-size: 0.6rem;
   }
 
   .footer-cv {
-    padding: 10px 16px;
+    padding: 12px 16px;
   }
 }
 
-/* =========================================================
-   EKSTRA SMÅ MOBILER
-========================================================= */
-
-@media (max-width: 430px) {
-  .header {
-    height: 64px;
-  }
-
-  .logo {
-    font-size: 19px;
-  }
-
-  .nav {
-    gap: 8px;
-
-    font-size: 7px;
-  }
-
-  .hero {
-    height: calc(100svh - 64px);
-  }
-
-  .bronden-phone-grid {
-    gap: 7px;
-  }
-
-  .young-top-phones {
-    gap: 10px;
-  }
-
-  .young-bottom-phones {
-    gap: 20px 10px;
-  }
-}
-
-/* =========================================================
+/* ========================================
    REDUCED MOTION
-========================================================= */
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
