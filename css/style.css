@@ -1164,3 +1164,73 @@ p {
     scroll-behavior: auto;
   }
 }
+
+/* Brønden: Grøn dekoration må ikke dække teksten */
+.bronden-some {
+  isolation: isolate;
+}
+
+.bronden-some .green-decoration {
+  z-index: -1;
+}
+
+.bronden-some .some-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Kun mobil: Ryk den grønne firkant op ved Brønden */
+@media (max-width: 650px) {
+  .bronden-some .green-decoration {
+    bottom: 40px;
+  }
+}
+
+/* Kun mobil: Ryk Young Creatives Videoproduktion-teksten ned */
+@media (max-width: 650px) {
+  .young-video-section .video-content {
+    padding-top: 100px;
+  }
+}
+
+/* Young Creatives: Kun mobilvisning */
+@media (max-width: 650px) {
+  .young-some-top {
+    display: contents;
+  }
+
+  .young-some {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .young-some .some-content {
+    order: 1;
+    width: 100%;
+    margin: 0 0 50px;
+  }
+
+  .young-top-phones {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .young-bottom-phones {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .young-top-phones img,
+  .young-bottom-phones img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
